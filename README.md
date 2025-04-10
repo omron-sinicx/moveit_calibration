@@ -15,6 +15,10 @@ When building `moveit_calibration` on ROS Melodic, `rviz_visual_tools` must also
 This package was originally developed by Dr. Yu Yan at Intel, and was originally submitted as a PR to the core MoveIt
 repository. For background, see this [Github discussion](https://github.com/ros-planning/moveit/issues/1070).
 
+## Notes
+- Avoid having tf camera frames being publish by the URDF and the camera on the same frame name!
+     It messes with the calibration process.
+
 ## GitHub Actions - Continuous Integration
 
 [![Format](https://github.com/ros-planning/moveit_calibration/actions/workflows/format.yaml/badge.svg?branch=master)](https://github.com/ros-planning/moveit_calibration/actions/workflows/format.yaml?branch=master)
