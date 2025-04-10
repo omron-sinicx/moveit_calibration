@@ -15,9 +15,11 @@ When building `moveit_calibration` on ROS Melodic, `rviz_visual_tools` must also
 This package was originally developed by Dr. Yu Yan at Intel, and was originally submitted as a PR to the core MoveIt
 repository. For background, see this [Github discussion](https://github.com/ros-planning/moveit/issues/1070).
 
-## Notes
-- Avoid having tf camera frames being publish by the URDF and the camera on the same frame name!
-     It messes with the calibration process.
+## Instructions
+Before following the official [tutorial](https://github.com/moveit/moveit_tutorials/blob/master/doc/hand_eye_calibration/hand_eye_calibration_tutorial.rst), be sure to check the following things:
+- Do not publish the previously calibrated values! (check the camera bring up launch file)
+- Make sure that the URDF does not publish the camera frames! (check the camera xacro config if necessary)
+- Make that the tf_prefix on the camera launcher matches the one being used for the tutorial.
 
 ## GitHub Actions - Continuous Integration
 
