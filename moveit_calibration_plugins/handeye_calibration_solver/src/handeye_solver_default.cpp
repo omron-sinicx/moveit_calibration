@@ -112,6 +112,14 @@ bool HandEyeSolverDefault::solve(const std::vector<Eigen::Isometry3d>& effector_
     return false;
   }
 
+  // baldor (imported by handeye) uses np.float, which was removed in numpy 1.24
+  if (PyRun_SimpleString("import numpy\nif not hasattr(numpy, 'float'):\n    numpy.float = float\n") < 0)
+  {
+    *error_message = "Error restoring numpy.float alias";
+    ROS_ERROR_STREAM_NAMED(LOGNAME, *error_message);
+    return false;
+  }
+
   PyObject *python_name, *python_module, *python_class, *python_instance, *python_func_add_sample, *python_func_solve;
   PyObject *python_args, *python_value;
 

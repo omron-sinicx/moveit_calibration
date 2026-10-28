@@ -13,7 +13,7 @@ find_package(PythonLibs 2.7 REQUIRED)
 find_package(NumPy 1.7 REQUIRED)
 
 #catkin_lint: ignore_once missing_directory
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${PYTHON_INCLUDE_DIRS})
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${NUMPY_INCLUDE_DIR} ${PYTHON_INCLUDE_DIRS})
 
 # Plugin Source
 set(SOURCE_FILES
